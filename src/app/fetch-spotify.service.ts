@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { catchError } from 'rxjs';
 
 
 enum RequestType {
@@ -24,7 +25,10 @@ export class FetchSpotifyService {
 
     
     constructor(private http: HttpClient) {
+        this.initToken()        
+    }
 
+    initToken() {
         let headers = new HttpHeaders();
         headers = headers.set(this.authHeaders[0], this.authHeaders[1])
 
@@ -44,7 +48,6 @@ export class FetchSpotifyService {
     getRandomSearch() {
         let characters = 'azertyuiopqsdfghjklmwxcvbn'
         let randomCharacter = characters.charAt(Math.floor(Math.random() * characters.length))
-
         let randomSearch = ""
 
         switch(Math.round(Math.random())) {
@@ -55,7 +58,7 @@ export class FetchSpotifyService {
                 randomSearch = "%" + randomCharacter + "%"
                 break;
         }
-        
+
         return randomSearch
     }
 
@@ -64,7 +67,7 @@ export class FetchSpotifyService {
         let randomOffset = Math.floor(Math.random() * 950)
         // console.log(query)
         // console.log(randomOffset)
-        return this.http.get(
+        let observable = this.http.get(
             this.spotifyUrl + "/search",
             {
                 headers: this.tokenHeaders,
@@ -74,7 +77,12 @@ export class FetchSpotifyService {
                     // .set('limit', 1)
                     .set('offset', randomOffset)
             }
-        )
+        ).pipe(
+            catchError((error: any) => {
+                if (error.status == 401) { this.initToken() }
+                throw error
+            }))
+        return observable
     }
 
     fetchData(type:RequestType, id:string) {

@@ -1,2 +1,7 @@
-
-<button (click)="fetchRandom()">CLICK</button>
+<div class="line-container">
+    <app-albumimg-display [songImg]="songImg"></app-albumimg-display>
+    <div class="v-separator"></div>
+    <app-song-display [songData]="songData"></app-song-display>
+    <div class="v-separator"></div>
+    <app-main-button (onSongFetched)="handleSongFetched($event)"></app-main-button>
+</div>

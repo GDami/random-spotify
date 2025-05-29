@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+html {
+    background: linear-gradient(90deg,rgba(183, 94, 255, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+}
+
+* {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+}
+
+body {
+    margin:0;
+    color: white;
+}

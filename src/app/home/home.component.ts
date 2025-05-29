@@ -1,27 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { FetchSpotifyService } from '../fetch-spotify.service';
-import { JsonPipe } from '@angular/common';
+import { Component } from '@angular/core';
+import { SongDisplayComponent } from "../song-display/song-display.component";
+import { MainButtonComponent } from '../main-button/main-button.component';
+import { AlbumimgDisplayComponent } from "../albumimg-display/albumimg-display.component";
 
 @Component({
   selector: 'app-home',
-  imports: [JsonPipe],
+  imports: [SongDisplayComponent, MainButtonComponent, AlbumimgDisplayComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit {
-    private _myData:any;
-    constructor(private fetchSpotifyService: FetchSpotifyService) {}
+export class HomeComponent {
+    songData:any
+    songImg:string = ""
 
-    ngOnInit() {
-        //
-    }
 
-    get songName() { return this._myData}
-
-    fetchRandom() {
-        this.fetchSpotifyService.getRandomSong().subscribe((data:any) =>{
-            this._myData = data.tracks.items[Math.floor(Math.random() * data.tracks.items.length)]
-            console.log(this.songName)
-        })
+    handleSongFetched(data: any) {
+        this.songData = data
+        this.songImg = this.songData.album.images[0].url
     }
 }

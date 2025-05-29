@@ -1,0 +1,26 @@
+:host {
+    width: 40%;
+    max-width: 40%;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+p {
+    margin: 0.5em 0;
+}
+
+a {
+    color:inherit;
+    text-decoration: none;
+}
+
+.song-name {
+    font-size: 1.5em;
+}
+
+.song-artists {
+    font-size: 0.8em;
+    font-weight: normal;
+}

@@ -1,0 +1,38 @@
+
+:host {
+    flex:1;
+}
+
+button img {
+    filter: brightness(0) invert(1);
+}
+
+button {
+    background-color: transparent;
+    padding: 25px 40px;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+    border-color: rgba(211, 68, 165, 0);
+    border-style: solid;
+}
+
+@media (hover: hover) {
+    button:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+}
+
+.pressed {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+button:focus {
+    outline: none;
+    border-color: rgba(255,255,255,0.7);
+}
+
+button:active, .pressed {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: translateY(1px);
+    border-style: solid;
+}
