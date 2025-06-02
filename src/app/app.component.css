@@ -1,4 +1,6 @@
 header {
+    position: sticky;
+    top:0;
     text-align: center;
     font-size: 1.2em;
     color: white;
@@ -18,6 +20,7 @@ header strong {
 }
 
 main {
-    margin-top: 10px;
+    padding-top: 10px;
     height:calc(100vh - 60px);
+    overflow: auto;
 }

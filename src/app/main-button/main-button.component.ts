@@ -18,7 +18,7 @@ export class MainButtonComponent implements OnInit {
 
     ngOnInit() {
         this.initKeyPressBehavior()
-        this.initMouseLeaveBehavior()
+        // this.initMouseLeaveBehavior()
     }
 
     get songName() { return this._songData}
@@ -26,14 +26,18 @@ export class MainButtonComponent implements OnInit {
     initKeyPressBehavior() {
         let element = document.getElementById("main-button")
         element?.addEventListener("keydown", (e) => {
-            if (e.key == "Enter") {
+            if ((e.key == "Enter") || (e.key == " ")) {
                 element.classList.add("pressed")
+                element.classList.add("focus-visible")
             }
         })
         element?.addEventListener("keyup", (e) => {
-            if (e.key == "Enter") {
+            if ((e.key == "Enter") || (e.key == " ")) {
                 element.classList.remove("pressed")
             }
+        })
+        element?.addEventListener("blur", () => {
+            element.classList.remove("focus-visible")
         })
     }
 

@@ -11,7 +11,7 @@ button {
     background-color: transparent;
     padding: 25px 40px;
     border-radius: 4px;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, background-color 0.1s;
     border-color: rgba(211, 68, 165, 0);
     border-style: solid;
 }
@@ -22,17 +22,13 @@ button {
     }
 }
 
-.pressed {
-        background-color: rgba(0, 0, 0, 0.05);
-    }
-
-button:focus {
+button:focus-visible, button.focus-visible {
     outline: none;
     border-color: rgba(255,255,255,0.7);
 }
 
 button:active, .pressed {
     background-color: rgba(0, 0, 0, 0.1);
-    transform: translateY(1px);
+    transform: translateY(2px);
     border-style: solid;
 }

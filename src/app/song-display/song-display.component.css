@@ -14,6 +14,22 @@ p {
 a {
     color:inherit;
     text-decoration: none;
+    border-radius: 4px;
+    outline-style: solid;
+    outline-color: transparent;
+    outline-width: 2px;
+    display: inline-block;
+    padding: 2px 15px;
+    transition: outline-color 0.1s; 
+}
+
+a:focus-visible {
+    /* outline-color: rgba(255,255,255,0.7); */
+    text-decoration: underline;
+}
+
+a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .song-name {
