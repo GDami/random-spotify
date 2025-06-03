@@ -11,7 +11,7 @@ button {
     background-color: transparent;
     padding: 25px 40px;
     border-radius: 4px;
-    transition: border-color 0.2s, background-color 0.1s;
+    transition: border-color 0.1s, background-color 0.1s;
     border-color: rgba(211, 68, 165, 0);
     border-style: solid;
 }
